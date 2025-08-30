@@ -31,7 +31,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio - Multi-Theme Experience",
+  title: "SoftEdge - Theme Selector Demo",
   description: "Professional portfolio with multiple branded visual themes",
   generator: "v0.app",
 }
