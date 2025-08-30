@@ -16,8 +16,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "alex@example.com",
-    href: "mailto:alex@example.com",
+    value: "altugba99@gmail.com",
+    href: "mailto:altugba99@gmail.com",
     description: "Best for project inquiries",
   },
   {

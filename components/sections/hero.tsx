@@ -228,10 +228,10 @@ export function Hero() {
         <FadeIn delay={0.5}>
           <div className="flex justify-center items-center space-x-6 pt-2">
             {[
-              { icon: Github, label: "GitHub", skill: "Code" },
-              { icon: Linkedin, label: "LinkedIn", skill: "Network" },
-              { icon: Palette, label: "Design", skill: "Design" },
-            ].map(({ icon: Icon, label, skill }, index) => (
+              { icon: Github, label: "GitHub", skill: "Code", href: "https://github.com/BrockAltug" },
+              { icon: Linkedin, label: "LinkedIn", skill: "Network", href: "https://linkedin.com/in/brock-altug" },
+              { icon: Palette, label: "Design", skill: "Design", href: "#" },
+            ].map(({ icon: Icon, label, skill, href }, index) => (
               <motion.div
                 key={label}
                 className="group relative"
@@ -239,8 +239,11 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + index * 0.05 }}
               >
-                <motion.button
-                  className={`flex flex-col items-center space-y-1 text-muted-foreground hover:text-foreground transition-colors cursor-default ${
+                <motion.a
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`flex flex-col items-center space-y-1 text-muted-foreground hover:text-foreground transition-colors ${
                     theme === "creative-coder" ? "terminal-glow" : ""
                   }`}
                   aria-label={label}
@@ -251,7 +254,7 @@ export function Hero() {
                   <span className="text-xs font-body opacity-0 group-hover:opacity-100 transition-opacity">
                     {theme === "creative-coder" ? skill.toUpperCase() : skill}
                   </span>
-                </motion.button>
+                </motion.a>
               </motion.div>
             ))}
           </div>
