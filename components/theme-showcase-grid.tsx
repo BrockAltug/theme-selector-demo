@@ -75,7 +75,7 @@ export function ThemeShowcaseGrid() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setTheme(themeObj.value)}
                 className={`
-                  relative p-4 rounded-xl border-2 transition-all duration-300
+                  relative p-4 rounded-xl border-2 transition-all duration-300 h-32 flex flex-col justify-center
                   ${isActive ? "border-primary shadow-lg shadow-primary/25" : "border-border hover:border-primary/50"}
                   bg-card hover:bg-card/80 cursor-pointer
                 `}
