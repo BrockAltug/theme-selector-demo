@@ -46,14 +46,17 @@ export function ThemeShowcase() {
                   whileHover={{ y: -4, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2 }}
+                  className="h-full" // Added h-full for consistent height
                 >
                   <Card
-                    className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                    className={`cursor-pointer transition-all duration-300 hover:shadow-lg h-80 flex flex-col ${
                       isActive ? "ring-2 ring-primary shadow-lg" : ""
-                    }`}
+                    }`} // Added fixed height h-80 and flex flex-col
                     onClick={() => setTheme(themeOption.value)}
                   >
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-3 flex-shrink-0">
+                      {" "}
+                      {/* Added flex-shrink-0 */}
                       <div className="flex items-center justify-between">
                         <CardTitle className={`${getHeadingClass()} text-lg`}>{themeOption.label}</CardTitle>
                         {isActive && (
@@ -67,7 +70,9 @@ export function ThemeShowcase() {
                       </div>
                       <CardDescription className="font-body text-sm">{themeOption.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      {" "}
+                      {/* Added flex-1 flex flex-col justify-between for content distribution */}
                       <div className="space-y-3">
                         <motion.div
                           className="h-2 bg-primary/20 rounded-full overflow-hidden"
