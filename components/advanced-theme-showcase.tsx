@@ -235,15 +235,15 @@ export function AdvancedThemeShowcase() {
                   whileTap={{ scale: 0.95 }}
                   onHoverStart={() => setHoveredTheme(themeObj.value)}
                   onHoverEnd={() => setHoveredTheme(null)}
-                  className="relative group cursor-pointer"
+                  className="relative group cursor-pointer h-full"
                   style={{ perspective: "1000px" }}
                   onClick={() => setTheme(themeObj.value)}
                 >
                   <Card
                     className={`
-                    relative overflow-hidden transition-all duration-500
+                    relative overflow-hidden transition-all duration-500 h-96 flex flex-col
                     ${isActive ? "ring-4 ring-primary shadow-2xl shadow-primary/25" : "hover:shadow-xl"}
-                    ${viewMode === "list" ? "p-6" : "p-4"}
+                    ${viewMode === "list" ? "p-6 h-auto" : "p-4"}
                     bg-gradient-to-br from-card via-card/95 to-card/90
                   `}
                   >
@@ -325,43 +325,45 @@ export function AdvancedThemeShowcase() {
                       </motion.div>
                     </div>
 
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <motion.h3
-                          className="font-bold text-lg text-foreground"
-                          animate={isActive ? { scale: [1, 1.05, 1] } : {}}
-                          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                        >
-                          {themeObj.label}
-                        </motion.h3>
-                        {isActive && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="flex items-center gap-1 text-primary"
+                    <div className="space-y-3 flex-1 flex flex-col justify-between">
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <motion.h3
+                            className="font-bold text-lg text-foreground"
+                            animate={isActive ? { scale: [1, 1.05, 1] } : {}}
+                            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                           >
-                            <Star className="w-4 h-4 fill-current" />
-                            <span className="text-sm font-medium">Active</span>
-                          </motion.div>
-                        )}
-                      </div>
-
-                      <p className="text-sm text-muted-foreground line-clamp-2">{themeObj.description}</p>
-
-                      <div className="flex items-center justify-between text-xs text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <Palette className="w-3 h-3" />
-                          <span>3 Colors</span>
+                            {themeObj.label}
+                          </motion.h3>
+                          {isActive && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="flex items-center gap-1 text-primary"
+                            >
+                              <Star className="w-4 h-4 fill-current" />
+                              <span className="text-sm font-medium">Active</span>
+                            </motion.div>
+                          )}
                         </div>
-                        {isPremium && (
-                          <div className="flex items-center gap-1">
-                            <Zap className="w-3 h-3 text-yellow-500" />
-                            <span className="text-yellow-600 font-medium">PRO</span>
+
+                        <p className="text-sm text-muted-foreground line-clamp-2">{themeObj.description}</p>
+
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                          <div className="flex items-center gap-2">
+                            <Palette className="w-3 h-3" />
+                            <span>3 Colors</span>
                           </div>
-                        )}
+                          {isPremium && (
+                            <div className="flex items-center gap-1">
+                              <Zap className="w-3 h-3 text-yellow-500" />
+                              <span className="text-yellow-600 font-medium">PRO</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="flex gap-2 pt-2">
+                      <div className="flex gap-2 pt-2 mt-auto">
                         <Button
                           size="sm"
                           onClick={(e) => {
