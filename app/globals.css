@@ -1,0 +1,743 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Default theme (Modern Geometric) - Bright tech colors */
+  --background: oklch(0.98 0.01 240); /* Cool white */
+  --foreground: oklch(0.2 0.05 240); /* Deep blue-gray */
+  --card: oklch(0.96 0.02 240); /* Light blue tint */
+  --card-foreground: oklch(0.2 0.05 240);
+  --popover: oklch(0.98 0.01 240);
+  --popover-foreground: oklch(0.2 0.05 240);
+  --primary: oklch(0.55 0.25 260); /* Electric blue */
+  --primary-foreground: oklch(0.98 0.01 240);
+  --secondary: oklch(0.65 0.2 320); /* Bright magenta */
+  --secondary-foreground: oklch(0.98 0.01 240);
+  --muted: oklch(0.94 0.02 240);
+  --muted-foreground: oklch(0.45 0.03 240);
+  --accent: oklch(0.7 0.25 180); /* Cyan accent */
+  --accent-foreground: oklch(0.98 0.01 240);
+  --destructive: oklch(0.6 0.25 20);
+  --destructive-foreground: oklch(0.98 0.01 240);
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.96 0.02 240);
+  --ring: oklch(0.55 0.25 260 / 0.3);
+  --radius: 12px; /* Sharp geometric corners */
+}
+
+/* Dark Pro theme (Glassy High-Contrast) - True glass morphism */
+.dark-pro {
+  --background: oklch(0.08 0.02 240); /* Deep space blue */
+  --foreground: oklch(0.95 0.02 60); /* Warm white */
+  --card: oklch(0.12 0.03 240 / 0.8); /* Glass effect */
+  --card-foreground: oklch(0.95 0.02 60);
+  --popover: oklch(0.12 0.03 240 / 0.9);
+  --popover-foreground: oklch(0.95 0.02 60);
+  --primary: oklch(0.75 0.3 60); /* Bright gold */
+  --primary-foreground: oklch(0.08 0.02 240);
+  --secondary: oklch(0.65 0.25 300); /* Electric purple */
+  --secondary-foreground: oklch(0.95 0.02 60);
+  --muted: oklch(0.15 0.03 240 / 0.5);
+  --muted-foreground: oklch(0.7 0.02 60);
+  --accent: oklch(0.8 0.25 180); /* Neon cyan */
+  --accent-foreground: oklch(0.08 0.02 240);
+  --destructive: oklch(0.7 0.3 0);
+  --destructive-foreground: oklch(0.08 0.02 240);
+  --border: oklch(0.3 0.05 240 / 0.3);
+  --input: oklch(0.12 0.03 240 / 0.6);
+  --ring: oklch(0.75 0.3 60 / 0.5);
+  --radius: 20px; /* Rounded glass effect */
+}
+
+/* Editorial Serif theme (Luxury Minimal) - Warm paper aesthetic */
+.editorial {
+  --background: oklch(0.97 0.02 45); /* Warm cream paper */
+  --foreground: oklch(0.15 0.03 30); /* Rich dark brown */
+  --card: oklch(0.94 0.03 45); /* Aged paper */
+  --card-foreground: oklch(0.15 0.03 30);
+  --popover: oklch(0.97 0.02 45);
+  --popover-foreground: oklch(0.15 0.03 30);
+  --primary: oklch(0.4 0.15 30); /* Deep burgundy */
+  --primary-foreground: oklch(0.97 0.02 45);
+  --secondary: oklch(0.6 0.12 60); /* Muted gold */
+  --secondary-foreground: oklch(0.15 0.03 30);
+  --muted: oklch(0.92 0.03 45);
+  --muted-foreground: oklch(0.35 0.05 30);
+  --accent: oklch(0.5 0.1 120); /* Forest green */
+  --accent-foreground: oklch(0.97 0.02 45);
+  --destructive: oklch(0.5 0.2 15);
+  --destructive-foreground: oklch(0.97 0.02 45);
+  --border: oklch(0.85 0.03 45);
+  --input: oklch(0.94 0.03 45);
+  --ring: oklch(0.4 0.15 30 / 0.3);
+  --radius: 2px; /* Minimal sharp edges */
+}
+
+/* Creative Coder theme - Retro terminal vibes */
+.creative-coder {
+  --background: oklch(0.05 0.02 120); /* Deep matrix green */
+  --foreground: oklch(0.85 0.15 120); /* Bright terminal green */
+  --card: oklch(0.08 0.03 120); /* Darker green panels */
+  --card-foreground: oklch(0.85 0.15 120);
+  --popover: oklch(0.08 0.03 120);
+  --popover-foreground: oklch(0.85 0.15 120);
+  --primary: oklch(0.75 0.2 120); /* Electric lime */
+  --primary-foreground: oklch(0.05 0.02 120);
+  --secondary: oklch(0.7 0.25 60); /* Amber warning */
+  --secondary-foreground: oklch(0.05 0.02 120);
+  --muted: oklch(0.1 0.03 120);
+  --muted-foreground: oklch(0.6 0.1 120);
+  --accent: oklch(0.8 0.3 300); /* Hot pink error */
+  --accent-foreground: oklch(0.05 0.02 120);
+  --destructive: oklch(0.7 0.3 0);
+  --destructive-foreground: oklch(0.05 0.02 120);
+  --border: oklch(0.2 0.05 120);
+  --input: oklch(0.08 0.03 120);
+  --ring: oklch(0.75 0.2 120 / 0.5);
+  --radius: 0px; /* Terminal sharp edges */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* NEW THEME 1: Neon Cyberpunk - Electric purple and pink with neon effects */
+.neon-cyberpunk {
+  --background: oklch(0.03 0.05 280); /* Deep purple-black */
+  --foreground: oklch(0.95 0.1 300); /* Bright neon pink */
+  --card: oklch(0.06 0.08 280 / 0.9); /* Dark purple glass */
+  --card-foreground: oklch(0.95 0.1 300);
+  --popover: oklch(0.06 0.08 280 / 0.95);
+  --popover-foreground: oklch(0.95 0.1 300);
+  --primary: oklch(0.8 0.35 300); /* Hot neon pink */
+  --primary-foreground: oklch(0.03 0.05 280);
+  --secondary: oklch(0.75 0.3 260); /* Electric purple */
+  --secondary-foreground: oklch(0.95 0.1 300);
+  --muted: oklch(0.08 0.06 280);
+  --muted-foreground: oklch(0.7 0.08 300);
+  --accent: oklch(0.85 0.25 180); /* Neon cyan */
+  --accent-foreground: oklch(0.03 0.05 280);
+  --destructive: oklch(0.75 0.35 0);
+  --destructive-foreground: oklch(0.03 0.05 280);
+  --border: oklch(0.25 0.1 280 / 0.5);
+  --input: oklch(0.06 0.08 280 / 0.8);
+  --ring: oklch(0.8 0.35 300 / 0.6);
+  --radius: 8px; /* Medium rounded */
+}
+
+/* NEW THEME 2: Retro Sunset - Warm 80s vibes with gradients */
+.retro-sunset {
+  --background: oklch(0.92 0.05 40); /* Warm peach */
+  --foreground: oklch(0.2 0.08 20); /* Deep coral */
+  --card: oklch(0.88 0.08 50); /* Sunset orange */
+  --card-foreground: oklch(0.2 0.08 20);
+  --popover: oklch(0.92 0.05 40);
+  --popover-foreground: oklch(0.2 0.08 20);
+  --primary: oklch(0.6 0.25 350); /* Retro magenta */
+  --primary-foreground: oklch(0.92 0.05 40);
+  --secondary: oklch(0.7 0.2 60); /* Sunset yellow */
+  --secondary-foreground: oklch(0.2 0.08 20);
+  --muted: oklch(0.85 0.06 45);
+  --muted-foreground: oklch(0.4 0.06 25);
+  --accent: oklch(0.65 0.2 280); /* Retro purple */
+  --accent-foreground: oklch(0.92 0.05 40);
+  --destructive: oklch(0.6 0.25 15);
+  --destructive-foreground: oklch(0.92 0.05 40);
+  --border: oklch(0.75 0.08 45);
+  --input: oklch(0.88 0.08 50);
+  --ring: oklch(0.6 0.25 350 / 0.4);
+  --radius: 25px; /* Very rounded retro */
+}
+
+/* NEW THEME 3: Ocean Deep - Deep blues and teals with wave effects */
+.ocean-deep {
+  --background: oklch(0.15 0.08 220); /* Deep ocean blue */
+  --foreground: oklch(0.9 0.05 200); /* Light sea foam */
+  --card: oklch(0.18 0.1 210); /* Deeper blue */
+  --card-foreground: oklch(0.9 0.05 200);
+  --popover: oklch(0.18 0.1 210);
+  --popover-foreground: oklch(0.9 0.05 200);
+  --primary: oklch(0.65 0.2 180); /* Bright teal */
+  --primary-foreground: oklch(0.15 0.08 220);
+  --secondary: oklch(0.7 0.15 200); /* Ocean blue */
+  --secondary-foreground: oklch(0.15 0.08 220);
+  --muted: oklch(0.22 0.08 215);
+  --muted-foreground: oklch(0.65 0.05 200);
+  --accent: oklch(0.75 0.25 160); /* Aqua green */
+  --accent-foreground: oklch(0.15 0.08 220);
+  --destructive: oklch(0.65 0.25 30);
+  --destructive-foreground: oklch(0.15 0.08 220);
+  --border: oklch(0.35 0.1 210);
+  --input: oklch(0.18 0.1 210);
+  --ring: oklch(0.65 0.2 180 / 0.5);
+  --radius: 16px; /* Wave-like curves */
+}
+
+/* NEW THEME 4: Forest Sage - Natural greens with earthy tones */
+.forest-sage {
+  --background: oklch(0.96 0.02 120); /* Light sage */
+  --foreground: oklch(0.25 0.05 140); /* Deep forest */
+  --card: oklch(0.93 0.03 115); /* Pale mint */
+  --card-foreground: oklch(0.25 0.05 140);
+  --popover: oklch(0.96 0.02 120);
+  --popover-foreground: oklch(0.25 0.05 140);
+  --primary: oklch(0.45 0.15 140); /* Forest green */
+  --primary-foreground: oklch(0.96 0.02 120);
+  --secondary: oklch(0.6 0.12 80); /* Moss green */
+  --secondary-foreground: oklch(0.25 0.05 140);
+  --muted: oklch(0.9 0.03 120);
+  --muted-foreground: oklch(0.5 0.05 130);
+  --accent: oklch(0.55 0.1 60); /* Sage yellow */
+  --accent-foreground: oklch(0.25 0.05 140);
+  --destructive: oklch(0.5 0.2 40);
+  --destructive-foreground: oklch(0.96 0.02 120);
+  --border: oklch(0.8 0.04 120);
+  --input: oklch(0.93 0.03 115);
+  --ring: oklch(0.45 0.15 140 / 0.3);
+  --radius: 6px; /* Natural organic curves */
+}
+
+/* Completely redesigned PREMIUM THEME 1: Royal Luxury - Midnight navy with liquid gold */
+.royal-luxury {
+  --background: oklch(0.02 0.08 240); /* Deep midnight navy */
+  --foreground: oklch(0.98 0.05 50); /* Liquid gold white */
+  --card: oklch(0.04 0.12 240 / 0.98); /* Royal navy glass */
+  --card-foreground: oklch(0.98 0.05 50);
+  --popover: oklch(0.04 0.12 240 / 0.99);
+  --popover-foreground: oklch(0.98 0.05 50);
+  --primary: oklch(0.85 0.35 50); /* Molten gold */
+  --primary-foreground: oklch(0.02 0.08 240);
+  --secondary: oklch(0.7 0.25 30); /* Amber bronze */
+  --secondary-foreground: oklch(0.02 0.08 240);
+  --muted: oklch(0.06 0.1 240);
+  --muted-foreground: oklch(0.75 0.08 50);
+  --accent: oklch(0.9 0.2 60); /* Champagne */
+  --accent-foreground: oklch(0.02 0.08 240);
+  --destructive: oklch(0.65 0.35 15);
+  --destructive-foreground: oklch(0.98 0.05 50);
+  --border: oklch(0.4 0.15 240 / 0.6);
+  --input: oklch(0.04 0.12 240 / 0.95);
+  --ring: oklch(0.85 0.35 50 / 0.8);
+  --radius: 32px; /* Ornate luxury curves */
+}
+
+/* Completely redesigned PREMIUM THEME 2: Holographic Matrix - Pure void with rainbow holograms */
+.holographic-matrix {
+  --background: oklch(0.005 0.01 0); /* Pure void black */
+  --foreground: oklch(0.95 0.2 180); /* Rainbow holographic */
+  --card: oklch(0.01 0.02 0 / 0.99); /* Void glass */
+  --card-foreground: oklch(0.95 0.2 180);
+  --popover: oklch(0.01 0.02 0 / 0.995);
+  --popover-foreground: oklch(0.95 0.2 180);
+  --primary: oklch(0.9 0.4 300); /* Holographic magenta */
+  --primary-foreground: oklch(0.005 0.01 0);
+  --secondary: oklch(0.85 0.35 120); /* Holographic green */
+  --secondary-foreground: oklch(0.005 0.01 0);
+  --muted: oklch(0.02 0.02 0);
+  --muted-foreground: oklch(0.8 0.15 180);
+  --accent: oklch(0.95 0.3 60); /* Holographic yellow */
+  --accent-foreground: oklch(0.005 0.01 0);
+  --destructive: oklch(0.8 0.4 0);
+  --destructive-foreground: oklch(0.005 0.01 0);
+  --border: oklch(0.3 0.2 180 / 0.3);
+  --input: oklch(0.01 0.02 0 / 0.98);
+  --ring: oklch(0.9 0.4 300 / 0.9);
+  --radius: 1px; /* Sharp holographic edges */
+}
+
+/* Completely redesigned PREMIUM THEME 3: Quantum Void - Cosmic deep space with particle physics */
+.quantum-void {
+  --background: oklch(0.008 0.02 270); /* Cosmic void */
+  --foreground: oklch(0.92 0.15 270); /* Quantum particle white */
+  --card: oklch(0.015 0.04 270 / 0.97); /* Quantum field */
+  --card-foreground: oklch(0.92 0.15 270);
+  --popover: oklch(0.015 0.04 270 / 0.99);
+  --popover-foreground: oklch(0.92 0.15 270);
+  --primary: oklch(0.8 0.4 270); /* Quantum violet */
+  --primary-foreground: oklch(0.008 0.02 270);
+  --secondary: oklch(0.75 0.35 330); /* Quantum pink */
+  --secondary-foreground: oklch(0.008 0.02 270);
+  --muted: oklch(0.03 0.03 270);
+  --muted-foreground: oklch(0.7 0.12 270);
+  --accent: oklch(0.85 0.3 210); /* Quantum blue */
+  --accent-foreground: oklch(0.008 0.02 270);
+  --destructive: oklch(0.7 0.4 0);
+  --destructive-foreground: oklch(0.008 0.02 270);
+  --border: oklch(0.25 0.15 270 / 0.4);
+  --input: oklch(0.015 0.04 270 / 0.95);
+  --ring: oklch(0.8 0.4 270 / 0.7);
+  --radius: 64px; /* Quantum bubble curves */
+}
+
+/* Completely redesigned PREMIUM THEME 4: Neural Network - Bio-tech with synaptic firing */
+.neural-network {
+  --background: oklch(0.03 0.05 160); /* Bio-tech teal */
+  --foreground: oklch(0.95 0.1 160); /* Synaptic white */
+  --card: oklch(0.05 0.08 160 / 0.96); /* Neural membrane */
+  --card-foreground: oklch(0.95 0.1 160);
+  --popover: oklch(0.05 0.08 160 / 0.98);
+  --popover-foreground: oklch(0.95 0.1 160);
+  --primary: oklch(0.75 0.3 160); /* Neural teal */
+  --primary-foreground: oklch(0.03 0.05 160);
+  --secondary: oklch(0.8 0.25 40); /* Synaptic orange */
+  --secondary-foreground: oklch(0.03 0.05 160);
+  --muted: oklch(0.08 0.06 160);
+  --muted-foreground: oklch(0.7 0.08 160);
+  --accent: oklch(0.85 0.35 280); /* Neural purple */
+  --accent-foreground: oklch(0.03 0.05 160);
+  --destructive: oklch(0.7 0.35 10);
+  --destructive-foreground: oklch(0.03 0.05 160);
+  --border: oklch(0.3 0.12 160 / 0.5);
+  --input: oklch(0.05 0.08 160 / 0.93);
+  --ring: oklch(0.75 0.3 160 / 0.6);
+  --radius: 18px; /* Organic neural curves */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Theme-specific typography */
+  .font-heading-default {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .font-heading-editorial {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .font-heading-coder {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .font-heading-neon {
+    font-family: "Orbitron", monospace;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .font-heading-retro {
+    font-family: "Righteous", cursive;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .font-heading-ocean {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .font-heading-forest {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  /* Updated premium theme typography */
+  .font-heading-royal {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .font-heading-holographic {
+    font-family: "Audiowide", cursive;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .font-heading-quantum {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .font-heading-neural {
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .font-body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Glass morphism effects for dark-pro theme */
+  .dark-pro .glass-effect {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Terminal effects for creative-coder theme */
+  .creative-coder .terminal-glow {
+    text-shadow: 0 0 10px currentColor;
+    animation: terminal-flicker 2s infinite alternate;
+  }
+
+  @keyframes terminal-flicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  /* Editorial serif elegant spacing */
+  .editorial .elegant-spacing {
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+  }
+
+  /* Custom scrollbar per theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  /* Advanced theme-specific effects */
+  .neon-cyberpunk .neon-glow {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon-pulse {
+    from {
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    }
+    to {
+      text-shadow: 0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor;
+    }
+  }
+
+  .retro-sunset .retro-gradient {
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ocean-deep .wave-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ocean-deep .wave-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: wave-sweep 3s infinite;
+  }
+
+  @keyframes wave-sweep {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .forest-sage .organic-shadow {
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.1), 0 1px 3px hsl(var(--primary) / 0.2);
+  }
+
+  .section-compact {
+    @apply py-4 md:py-6;
+  }
+
+  .hero-compact {
+    @apply py-8 md:py-12;
+  }
+
+  /* Completely redesigned premium theme effects */
+  .royal-luxury .liquid-gold {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    background-size: 300% 300%;
+    animation: liquid-flow 8s ease-in-out infinite;
+    position: relative;
+  }
+
+  .royal-luxury .liquid-gold::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, hsl(var(--primary) / 0.2) 50%, transparent 70%);
+    animation: gold-shimmer 4s linear infinite;
+  }
+
+  @keyframes liquid-flow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    33% {
+      background-position: 100% 0%;
+    }
+    66% {
+      background-position: 0% 100%;
+    }
+  }
+
+  @keyframes gold-shimmer {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(300%) rotate(45deg);
+    }
+  }
+
+  .holographic-matrix .rainbow-hologram {
+    background: linear-gradient(
+      90deg,
+      hsl(0 100% 70%) 0%,
+      hsl(60 100% 70%) 16.66%,
+      hsl(120 100% 70%) 33.33%,
+      hsl(180 100% 70%) 50%,
+      hsl(240 100% 70%) 66.66%,
+      hsl(300 100% 70%) 83.33%,
+      hsl(360 100% 70%) 100%
+    );
+    background-size: 400% 100%;
+    animation: rainbow-shift 3s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .holographic-matrix .hologram-projection {
+    position: relative;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      hsl(var(--primary) / 0.1) 1px,
+      hsl(var(--primary) / 0.1) 2px
+    );
+    animation: hologram-flicker 0.5s infinite alternate;
+  }
+
+  @keyframes rainbow-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+
+  @keyframes hologram-flicker {
+    0% {
+      opacity: 0.95;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .quantum-void .particle-field {
+    background-image: radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(var(--secondary) / 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 50% 10%, hsl(var(--accent) / 0.2) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px, 100px 100px;
+    animation: quantum-drift 20s linear infinite;
+  }
+
+  .quantum-void .energy-orb {
+    background: radial-gradient(circle, hsl(var(--primary) / 0.4) 0%, transparent 70%);
+    animation: orb-pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes quantum-drift {
+    0% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 60px 60px, -80px -80px, 100px -100px;
+    }
+  }
+
+  @keyframes orb-pulse {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      transform: scale(1.2) rotate(180deg);
+      opacity: 0.8;
+    }
+  }
+
+  .neural-network .synaptic-firing {
+    background: radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.2) 2px, transparent 2px),
+      radial-gradient(circle at 80% 70%, hsl(var(--secondary) / 0.2) 2px, transparent 2px),
+      radial-gradient(circle at 60% 20%, hsl(var(--accent) / 0.2) 2px, transparent 2px);
+    background-size: 100px 100px, 120px 120px, 80px 80px;
+    animation: neural-pulse 6s ease-in-out infinite;
+    position: relative;
+  }
+
+  .neural-network .synaptic-firing::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 48%,
+      hsl(var(--primary) / 0.1) 49%,
+      hsl(var(--primary) / 0.1) 51%,
+      transparent 52%
+    );
+    animation: neural-connection 3s linear infinite;
+  }
+
+  @keyframes neural-pulse {
+    0%,
+    100% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    50% {
+      background-position: 50px 50px, -60px -60px, 40px -40px;
+    }
+  }
+
+  @keyframes neural-connection {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%);
+    }
+  }
+}
